@@ -10,8 +10,8 @@ def quickSort(dataset, first, last):
         pivotIdx = partition(dataset, first, last)
 
         # now sort the two partitions
-        quickSort(dataset, first, pivotIdx-1)
-        quickSort(dataset, pivotIdx+1, last)
+        quickSort(dataset, first, pivotIdx - 1)
+        quickSort(dataset, pivotIdx + 1, last)
 
 
 def partition(datavalues, first, last):
@@ -25,11 +25,18 @@ def partition(datavalues, first, last):
     done = False
     while not done:
         # TODO: advance the lower index
-
+        while lower <= upper and datavalues[lower] <= pivotvalue:
+            lower += 1
         # TODO: advance the upper index
-
+        while datavalues[upper] >= pivotvalue and lower <= upper:
+            upper -= 1
         # TODO: if the two indexes cross, we have found the split point
-        pass
+        if upper < lower:
+            done = True
+        else:
+            temp = datavalues[lower]
+            datavalues[lower] = datavalues[upper]
+            datavalues[upper] = temp
 
     # when the split point is found, exchange the pivot value
     temp = datavalues[first]
@@ -42,5 +49,5 @@ def partition(datavalues, first, last):
 
 # test the merge sort with data
 print(items)
-quickSort(items, 0, len(items)-1)
+quickSort(items, 0, len(items) - 1)
 print(items)
