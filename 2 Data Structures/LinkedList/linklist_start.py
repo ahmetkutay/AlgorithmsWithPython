@@ -44,7 +44,6 @@ class LinkedList(object):
                 return item
             else:
                 item = item.get_next()
-
         return None
 
     def deleteAt(self, idx):
@@ -79,11 +78,12 @@ itemlist.dump_list()
 
 # exercise the list
 print("Item count: ", itemlist.get_count())
+print("Finding item: ", itemlist.find(13))
+print("Finding item: ", itemlist.find(49))
 
 # delete an item
 itemlist.deleteAt(3)
 print("Item count: ", itemlist.get_count())
-print("Finding item: ", itemlist.find(15))
-
+print("Finding item: ", itemlist.find(38))
 itemlist.dump_list()
 
